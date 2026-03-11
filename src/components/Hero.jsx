@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Instagram, Linkedin, Mail } from 'lucide-react';
+import { ChevronDown, Instagram, Linkedin, Mail, FileText } from 'lucide-react';
 
 const Hero = () => {
     return (
@@ -53,7 +53,15 @@ const Hero = () => {
                 </p>
 
                 <div className="hero-buttons" style={btnGroupStyle}>
-                    <a href="#portfolio" className="btn btn-primary">See My Work</a>
+                    <a href="#portfolio" className="btn btn-outline">See My Work</a>
+                    <a 
+                        href="https://drive.google.com/file/d/1KYYYj0tsjcwHDBwHXX0TeYJ89M5WHukO/view?usp=sharing" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="btn btn-outline"
+                    >
+                        <FileText size={18} /> View Resume
+                    </a>
                     <a href="#contact" className="btn btn-outline">Let's Talk</a>
                 </div>
 
