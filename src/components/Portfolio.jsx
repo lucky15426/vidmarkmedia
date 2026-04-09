@@ -7,9 +7,11 @@ import vid1 from '../assets/InShot_20260311_205236077.mp4';
 import vid3 from '../assets/lv_0_20260128183635.mp4';
 import vid6 from '../assets/lv_7584067748934798645_20260116183941.mp4';
 import vid5 from '../assets/Video Project 5.mp4';
+import vid7 from '../assets/dimpe1.mp4';
+import vid8 from '../assets/dimple2.mp4';
 
 // Image Imports - Card 1
-import showreelThumb from '../assets/WhatsApp Image 2026-03-11 at 10.43.13 PM.jpeg';
+import showreelThumb from '../assets/WhatsApp Image 2026-04-09 at 3.11.29 PM.jpeg';
 
 // Image Imports - Card 2
 import card2Img1 from '../assets/card2/Ananya Babu (2).png';
@@ -63,7 +65,7 @@ const Portfolio = () => {
             gradient: 'linear-gradient(135deg, #3a2d35, #c48b9f)',
             thumbnail: showreelThumb,
             videoUrl: vid1,
-            videos: [vid1, vid3, vid6, vid5]
+            videos: [vid1, vid3, vid6, vid5, vid7, vid8]
         },
         {
             id: 2,
@@ -178,11 +180,11 @@ const Portfolio = () => {
                                 <button className="modal-close" onClick={() => setSelectedProject(null)} style={closeBtnStyle}>
                                     <X size={24} />
                                 </button>
-                                
+
                                 <div className="modal-body" style={modalBodyStyle}>
                                     <h3 style={modalTitleStyle}>{selectedProject.title}</h3>
                                     <p style={modalDescStyle}>{selectedProject.desc}</p>
-                                    
+
                                     <div className="modal-media-container" style={modalMediaContainerStyle}>
                                         {selectedProject.videos ? (
                                             <div className="video-gallery" style={galleryGridStyle}>
