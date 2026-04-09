@@ -17,13 +17,14 @@ import {
 
 const Skills = () => {
     const technicalSkills = [
-        { name: 'Canva', icon: <Monitor size={16} /> },
-        { name: 'Instagram Mgt', icon: <Instagram size={16} /> },
-        { name: 'LinkedIn Mgt', icon: <Linkedin size={16} /> },
-        { name: 'Facebook Mgt', icon: <Facebook size={16} /> },
-        { name: 'InShot / VN Editor', icon: <Video size={16} /> },
+        { name: 'Canva Pro', icon: <Monitor size={16} /> },
+        { name: 'Inshot', icon: <Video size={16} /> },
+        { name: 'VN Editor', icon: <Video size={16} /> },
+        { name: 'Capcut', icon: <Video size={16} /> },
         { name: 'Google Workspace', icon: <Globe size={16} /> },
-        { name: 'Microsoft Office', icon: <Monitor size={16} /> }
+        { name: 'Microsoft Office', icon: <Monitor size={16} /> },
+        { name: 'Instagram Management', icon: <Instagram size={16} /> },
+        { name: 'AI Software Adaptability', icon: <Brain size={16} /> }
     ];
 
     const creativeSkills = [
@@ -31,7 +32,8 @@ const Skills = () => {
         { name: 'Visual Storytelling', icon: <PenTool size={16} /> },
         { name: 'Engagement Strategy', icon: <TrendingUp size={16} /> },
         { name: 'Design Thinking', icon: <Brain size={16} /> },
-        { name: 'Creative Collaboration', icon: <Users size={16} /> }
+        { name: 'Creative Collaboration', icon: <Users size={16} /> },
+        { name: 'Detail-oriented approach', icon: <Palette size={16} /> }
     ];
 
     return (

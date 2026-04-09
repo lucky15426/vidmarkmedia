@@ -4,18 +4,17 @@ import { motion } from 'framer-motion';
 const Experience = () => {
     const experiences = [
         {
-            date: '2025 – Present',
-            role: 'Graphics Head',
-            company: 'Vriksham Foundation',
+            date: '2026 – Present',
+            role: 'Brand Marketing Intern',
+            company: 'Obleka',
             tasks: [
-                'Leading visual content creation and professional video editing for social media campaigns.',
-                'Designing high-impact posters, event creatives, and dynamic Instagram story templates.',
-                'Developing creative content strategies that leverage both static design and video.'
+                'Curated meta ads content, Instagram reels, regular story sets, product posts and meme-style content to promote collections.',
+                'Produced reels reaching 8K-57K+ views and designed a meme post with 65 shares, the highest on the page.'
             ]
         },
         {
-            date: '2024 – Present',
-            role: 'Design Coordinator',
+            date: '2025 – 2026',
+            role: 'Design Head',
             company: 'TEDx Miranda House',
             tasks: [
                 'Creating high-engagement Instagram reels and social media visuals for TEDx events.',
@@ -24,7 +23,7 @@ const Experience = () => {
             ]
         },
         {
-            date: '2024 – Present',
+            date: '2025 – 2026',
             role: 'Head of Creative Department',
             company: 'Women in Business Club',
             tasks: [
@@ -34,13 +33,13 @@ const Experience = () => {
             ]
         },
         {
-            date: '2024 – 2025',
-            role: 'Editorial & Social Media Team Member',
-            company: 'Unnat Bharat Abhiyan (UBA) Cell',
+            date: '2025',
+            role: 'Graphics Head',
+            company: 'Vriksham Foundation',
             tasks: [
-                'Managed official Instagram strategy and content production (Posts/Stories).',
-                'Contributed professional copywriting for the UBA Coffee Table Book.',
-                'Liaised with outreach teams for grassroots community projects.'
+                'Leading visual content creation and professional video editing for social media campaigns.',
+                'Designing high-impact posters, event creatives, and dynamic Instagram story templates.',
+                'Developing creative content strategies that leverage both static design and video.'
             ]
         },
         {
@@ -51,6 +50,26 @@ const Experience = () => {
                 'Facilitated curriculum delivery for primary and middle school students.',
                 'Designed engaging lesson plans and tracked student performance metrics.',
                 'Engineered community engagement and successful fundraising initiatives.'
+            ]
+        },
+        {
+            date: '2025',
+            role: 'Creative Team Member | Placement Cell',
+            company: 'Miranda House',
+            tasks: [
+                'Designed social media creatives and LinkedIn posts for placement-related initiatives.',
+                'Contributed to the design of Guidepost and Perfectus (annual magazine and report).',
+                'Assisted in creating event posters and merchandise aligned with the cell’s visual identity.'
+            ]
+        },
+        {
+            date: '2024 – 2025',
+            role: 'Editorial & Social Media Team Member',
+            company: 'Unnat Bharat Abhiyan (UBA) Cell',
+            tasks: [
+                'Managed official Instagram strategy and content production (Posts/Stories).',
+                'Contributed professional copywriting for the UBA Coffee Table Book.',
+                'Liaised with outreach teams for grassroots community projects.'
             ]
         }
     ];

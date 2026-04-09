@@ -50,7 +50,7 @@ const About = () => {
 
                         <div className="about-stats">
                             <div className="stat">
-                                <span className="stat-number">3</span>
+                                <span className="stat-number">5</span>
                                 <span className="stat-label">Leadership Roles</span>
                             </div>
                             <div className="stat">

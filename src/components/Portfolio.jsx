@@ -95,8 +95,8 @@ const Portfolio = () => {
             desc: 'Engaging and interactive Instagram story designs created to boost audience participation.',
             icon: <Megaphone size={24} />,
             gradient: 'linear-gradient(135deg, #fff3e0, #ffe0b2)',
-            thumbnail: card4Img7,
-            images: [card4Img7, card4Img1, card4Img2, card4Img3, card4Img4, card4Img5, card4Img6]
+            thumbnail: card4Img5,
+            images: [card4Img5, card4Img1, card4Img2, card4Img3, card4Img4, card4Img6, card4Img7]
         },
         {
             id: 5,
