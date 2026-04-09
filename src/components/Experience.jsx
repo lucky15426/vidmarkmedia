@@ -58,7 +58,7 @@ const Experience = () => {
             company: 'Miranda House',
             tasks: [
                 'Designed social media creatives and LinkedIn posts for placement-related initiatives.',
-                'Contributed to the design of Guidepost and Perfectus (annual magazine and report).',
+                'Contributed to the design of Guidepost and Profectus (annual magazine and report).',
                 'Assisted in creating event posters and merchandise aligned with the cell’s visual identity.'
             ]
         },
