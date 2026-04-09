@@ -81,7 +81,7 @@ const Portfolio = () => {
             id: 3,
             title: 'Social Media Reels',
             category: 'video',
-            desc: 'Dynamic, high-retention reels optimized for Instagram and Other Social Platforms growth.',
+            desc: 'Dynamic, high-retention reels optimized for Instagram and Other Social Media Platforms growth.',
             icon: <Film size={24} />,
             gradient: 'linear-gradient(135deg, #e8eaf6, #c5cae9)',
             thumbnail: card3Thumb,

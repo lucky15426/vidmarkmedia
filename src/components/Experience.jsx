@@ -37,9 +37,9 @@ const Experience = () => {
             role: 'Graphics Head',
             company: 'Vriksham Foundation',
             tasks: [
-                'Leading visual content creation and professional video editing for social media campaigns.',
-                'Designing high-impact posters, event creatives, and dynamic Instagram story templates.',
-                'Developing creative content strategies that leverage both static design and video.'
+                'Lead visual content creation and professional video editing for social media campaigns.',
+                'Designed high-impact posters, event creatives, and dynamic Instagram story templates.',
+                'Developed creative content strategies that leverage both static design and video.'
             ]
         },
         {
@@ -49,11 +49,11 @@ const Experience = () => {
             tasks: [
                 'Facilitated curriculum delivery for primary and middle school students.',
                 'Designed engaging lesson plans and tracked student performance metrics.',
-                'Engineered community engagement and successful fundraising initiatives.'
+                'Curated community engagement and successful fundraising initiatives.'
             ]
         },
         {
-            date: '2025',
+            date: '2025-2026',
             role: 'Creative Team Member | Placement Cell',
             company: 'Miranda House',
             tasks: [
@@ -69,7 +69,7 @@ const Experience = () => {
             tasks: [
                 'Managed official Instagram strategy and content production (Posts/Stories).',
                 'Contributed professional copywriting for the UBA Coffee Table Book.',
-                'Liaised with outreach teams for grassroots community projects.'
+                'Coordinated with outreach teams for grassroots community projects.'
             ]
         }
     ];
