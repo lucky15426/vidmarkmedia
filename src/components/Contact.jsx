@@ -1,27 +1,51 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin, Send, Check } from 'lucide-react';
+import {
+    Mail, Phone, Linkedin, Instagram, Send, Check,
+    MessageCircle, ExternalLink
+} from 'lucide-react';
 import emailjs from '@emailjs/browser';
+
+const contactItems = [
+    {
+        label: 'Email',
+        val: 'Vidmarkmedia@gmail.com',
+        href: 'mailto:Vidmarkmedia@gmail.com',
+        icon: <Mail size={20} />,
+    },
+    {
+        label: 'Phone / WhatsApp',
+        val: '+91 7549304087',
+        href: 'https://wa.me/917549304087',
+        icon: <Phone size={20} />,
+    },
+    {
+        label: 'LinkedIn',
+        val: 'linkedin.com/company/vidmarkmedia',
+        href: 'https://www.linkedin.com/in/vidmark-media-b43a753a5/',
+        icon: <Linkedin size={20} />,
+    },
+];
 
 const Contact = () => {
     const formRef = useRef(null);
     const [isSent, setIsSent] = useState(false);
     const [isSending, setIsSending] = useState(false);
+    const [service, setService] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!formRef.current || isSending) return;
-
         setIsSending(true);
 
-        // Explicitly map all possible placeholder variations for compatibility
         const templateParams = {
-            name: formRef.current.name.value,
-            from_name: formRef.current.name.value,
-            email: formRef.current.email.value,
-            reply_to: formRef.current.email.value,
+            name: formRef.current.user_name.value,
+            from_name: formRef.current.user_name.value,
+            email: formRef.current.user_email.value,
+            reply_to: formRef.current.user_email.value,
             message: formRef.current.message.value,
-            title: 'Portfolio Contact Form' // Fixes {{title}} in subject line
+            service: formRef.current.service.value,
+            title: 'Freelance Inquiry',
         };
 
         emailjs
@@ -34,128 +58,198 @@ const Contact = () => {
             .then(() => {
                 setIsSent(true);
                 e.target.reset();
-                setTimeout(() => setIsSent(false), 3000);
+                setService('');
+                setTimeout(() => setIsSent(false), 4000);
             })
-            .catch((error) => {
-                console.error('EmailJS error:', error);
-                alert('Something went wrong, please try again later.');
+            .catch((err) => {
+                console.error('EmailJS error:', err);
+                alert('Something went wrong. Please email us directly at Vidmarkmedia@gmail.com');
             })
             .finally(() => setIsSending(false));
     };
 
-
-    const contactItems = [
-        {
-            label: 'Email',
-            val: 'dimple1682005@gmail.com',
-            href: 'mailto:dimple1682005@gmail.com',
-            icon: <Mail size={18} />
-        },
-        {
-            label: 'Phone',
-            val: '+91 9910880231',
-            icon: <Phone size={18} />
-        },
-        {
-            label: 'LinkedIn',
-            val: 'https://www.linkedin.com/in/dimple9119/',
-            href: 'https://www.linkedin.com/in/dimple9119/',
-            icon: <Linkedin size={18} />
-        }
-    ];
-
     return (
-        <section className="section contact" id="contact">
+        <section className="section" id="contact" style={{ background: 'var(--bg-surface)' }}>
             <div className="container">
-                <motion.h2
-                    className="section-title"
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                 >
-                    Get In Touch
-                </motion.h2>
+                    <div className="section-label">Get In Touch</div>
+                    <h2 className="section-title">
+                        Let's Build Something <span className="gradient-text">Great</span>
+                    </h2>
+                </motion.div>
 
-                <div className="contact-grid">
+                <div className="contact-layout">
                     <motion.div
-                        className="contact-info"
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        style={infoStyle}
+                        transition={{ duration: 0.7 }}
                     >
-                        {contactItems.map((item, index) => (
-                            <div key={index} className="contact-item" style={itemStyle}>
-                                <div style={iconBoxStyle}>{item.icon}</div>
-                                <div>
-                                    <h4 style={labelStyle}>{item.label}</h4>
-                                    {item.href ? (
-                                        <a href={item.href} target="_blank" rel="noopener noreferrer" style={valStyle}>{item.val}</a>
-                                    ) : (
-                                        <span style={valStyle}>{item.val}</span>
-                                    )}
-                                </div>
+                        <p className="contact-info-desc">
+                            Have a project in mind? Looking for a creative partner who delivers premium results?
+                            Let's talk. We are available for brand projects, campaigns, and long-term collaborations.
+                        </p>
+
+                        <div className="contact-items">
+                            {contactItems.map((item) => (
+                                <motion.div
+                                    key={item.label}
+                                    className="contact-item"
+                                    whileHover={{ x: 4 }}
+                                >
+                                    <div className="contact-icon-box">{item.icon}</div>
+                                    <div>
+                                        <div className="contact-label">{item.label}</div>
+                                        <a
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="contact-val"
+                                            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+                                        >
+                                            {item.val}
+                                            <ExternalLink size={12} style={{ opacity: 0.5 }} />
+                                        </a>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="contact-cta-btns" style={{ marginBottom: '40px' }}>
+                            <a
+                                href="https://wa.me/917549304087"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-primary btn-sm"
+                                style={{ background: 'linear-gradient(135deg, #25D366, #128C7E)' }}
+                            >
+                                <MessageCircle size={16} /> WhatsApp Us
+                            </a>
+                            <a
+                                href="mailto:Vidmarkmedia@gmail.com"
+                                className="btn btn-outline btn-sm"
+                            >
+                                <Mail size={16} /> Email Directly
+                            </a>
+                        </div>
+
+                        <div>
+                            <div className="contact-social-label">Find Us Online</div>
+                            <div className="contact-socials">
+                                {[
+                                    { icon: <Instagram size={18} />, href: 'https://www.instagram.com/vidmarkmedia', label: 'Instagram' },
+                                    { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/in/vidmark-media-b43a753a5/', label: 'LinkedIn' },
+                                    { icon: <Mail size={18} />, href: 'mailto:Vidmarkmedia@gmail.com', label: 'Email' },
+                                ].map(({ icon, href, label }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={label}
+                                        className="contact-social-link"
+                                    >
+                                        {icon}
+                                    </a>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+
+                        <div className="availability-badge">
+                            <span className="availability-dot" />
+                            <span>Available for new projects, responding within 24hrs</span>
+                        </div>
                     </motion.div>
 
-                    <motion.form
-                        className="contact-form"
-                        onSubmit={handleSubmit}
-                        ref={formRef}
+                    <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        style={formStyle}
+                        transition={{ duration: 0.7 }}
                     >
-                        <div className="form-group" style={groupStyle}>
-                            <input name="name" type="text" placeholder="Your Name" required style={inputStyle} />
-                        </div>
-                        <div className="form-group" style={groupStyle}>
-                            <input name="email" type="email" placeholder="Your Email" required style={inputStyle} />
-                        </div>
-                        <div className="form-group" style={groupStyle}>
-                            <textarea name="message" rows="5" placeholder="Your Message" required style={{ ...inputStyle, resize: 'vertical' }}></textarea>
-                        </div>
-                        <button
-                            type="submit"
-                            className={`btn btn-primary btn-full ${isSent ? 'success' : ''}`}
-                            disabled={isSending}
-                            style={{ ...btnStyle, background: isSent ? '#4caf50' : '#c48b9f', opacity: isSending ? 0.8 : 1 }}
-                        >
-                            {isSent ? (
-                                <>
-                                    <Check size={18} /> Sent!
-                                </>
-                            ) : (
-                                <>
-                                    <Send size={18} /> {isSending ? 'Sending...' : 'Send Message'}
-                                </>
-                            )}
-                        </button>
-                    </motion.form>
+                        <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
+                            <div className="contact-form-header">
+                                <h3>Send a Message</h3>
+                                <p>We will get back to you within 24 hours.</p>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="form-group" style={{ margin: 0 }}>
+                                    <label className="form-label">Your Name</label>
+                                    <input
+                                        name="user_name"
+                                        type="text"
+                                        placeholder="John Doe"
+                                        required
+                                        className="form-input"
+                                    />
+                                </div>
+                                <div className="form-group" style={{ margin: 0 }}>
+                                    <label className="form-label">Email Address</label>
+                                    <input
+                                        name="user_email"
+                                        type="email"
+                                        placeholder="john@company.com"
+                                        required
+                                        className="form-input"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label">Service Interested In</label>
+                                <select
+                                    name="service"
+                                    required
+                                    className="form-input"
+                                    value={service}
+                                    onChange={(e) => setService(e.target.value)}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    <option value="" disabled>Select a service...</option>
+                                    <option value="graphic-design">Graphic Design</option>
+                                    <option value="video-editing">Video Editing</option>
+                                    <option value="social-media">Social Media Management</option>
+                                    <option value="branding">Branding & Identity</option>
+                                    <option value="ui-ux">UI/UX Design</option>
+                                    <option value="reels">Reels & Story Editing</option>
+                                    <option value="full-package">Full Creative Package</option>
+                                    <option value="other">Other / Let's Discuss</option>
+                                </select>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label">Your Message</label>
+                                <textarea
+                                    name="message"
+                                    placeholder="Tell us about your project, goals, timeline, and budget..."
+                                    required
+                                    className="form-textarea"
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                className={`form-submit ${isSent ? 'success' : ''}`}
+                                disabled={isSending}
+                            >
+                                {isSent ? (
+                                    <><Check size={18} /> Message sent. We will reply soon.</>
+                                ) : (
+                                    <><Send size={18} /> {isSending ? 'Sending...' : 'Send Message'}</>
+                                )}
+                            </button>
+                        </form>
+                    </motion.div>
                 </div>
             </div>
         </section>
     );
 };
-
-const gridStyle = { display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '48px', alignItems: 'start' };
-const infoStyle = { display: 'flex', flexDirection: 'column', gap: '24px' };
-const itemStyle = { display: 'flex', alignItems: 'center', gap: '16px' };
-const iconBoxStyle = {
-    width: '48px', height: '48px', borderRadius: '14px', background: 'linear-gradient(135deg, #fdf5f8, #e8c4d4)',
-    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#c48b9f'
-};
-const labelStyle = { fontSize: '0.85rem', fontWeight: 600, marginBottom: '2px' };
-const valStyle = { fontSize: '0.88rem', color: '#7a6b72' };
-
-const formStyle = { display: 'flex', flexDirection: 'column', gap: '16px' };
-const groupStyle = { width: '100%' };
-const inputStyle = {
-    width: '100%', padding: '14px 20px', borderRadius: '10px', border: '1.5px solid #f0e4ea',
-    background: '#fff', fontSize: '0.9rem', outline: 'none'
-};
-const btnStyle = { width: '100%', justifyContent: 'center', color: '#fff' };
 
 export default Contact;

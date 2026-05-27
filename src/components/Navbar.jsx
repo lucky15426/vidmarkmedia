@@ -1,56 +1,80 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Menu } from 'lucide-react';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const navLinks = [
-        { name: 'About', href: '#about' },
-        { name: 'Education', href: '#education' },
-        { name: 'Experience', href: '#experience' },
+        { name: 'Services', href: '#services' },
         { name: 'Work', href: '#portfolio' },
-        { name: 'Skills', href: '#skills' },
+        { name: 'About', href: '#about' },
+        { name: 'Process', href: '#workflow' },
     ];
 
+    const handleLinkClick = () => setIsOpen(false);
+
     return (
-        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-            <a href="#" className="nav-logo">Dimple<span>.</span></a>
+        <motion.nav
+            className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+            <div className="container">
+                <a href="#hero" className="nav-logo">
+                    Vidmark<span>.</span>
+                </a>
 
-            <button
-                className={`nav-toggle ${isOpen ? 'active' : ''}`}
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle navigation"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-                {navLinks.map((link) => (
-                    <li key={link.name}>
-                        <a
-                            href={link.href}
-                            onClick={() => setIsOpen(false)}
+                <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
+                    {navLinks.map((link, i) => (
+                        <motion.li
+                            key={link.name}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 + i * 0.07 }}
                         >
-                            {link.name}
+                            <a href={link.href} onClick={handleLinkClick}>
+                                {link.name}
+                            </a>
+                        </motion.li>
+                    ))}
+                    <li>
+                        <a href="#contact" className="nav-cta" onClick={handleLinkClick}>
+                            Hire Us
                         </a>
                     </li>
-                ))}
-                <li><a href="#contact" className="nav-cta" onClick={() => setIsOpen(false)}>Contact</a></li>
-            </ul>
+                </ul>
 
-            {/* Mobile overlay to close menu */}
-            {isOpen && <div className="nav-overlay" onClick={() => setIsOpen(false)} />}
-        </nav>
+                <button
+                    className="nav-toggle"
+                    onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle navigation"
+                    style={{ background: 'none', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            className="nav-overlay"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsOpen(false)}
+                        />
+                    )}
+                </AnimatePresence>
+            </div>
+        </motion.nav>
     );
 };
 

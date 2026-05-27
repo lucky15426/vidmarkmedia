@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Services from './components/Services';
 import About from './components/About';
-import Education from './components/Education';
-import Experience from './components/Experience';
+import BrandLogos from './components/BrandLogos';
 import Portfolio from './components/Portfolio';
 import Skills from './components/Skills';
-import Certifications from './components/Certifications';
+import Workflow from './components/Workflow';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
@@ -39,12 +39,12 @@ function App() {
                     >
                         <Navbar />
                         <Hero />
+                        <Services />
                         <About />
-                        <Education />
-                        <Experience />
+                        <BrandLogos />
                         <Portfolio />
                         <Skills />
-                        <Certifications />
+                        <Workflow />
                         <Contact />
                         <Footer />
                         <BackToTop />

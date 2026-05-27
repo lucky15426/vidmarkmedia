@@ -1,126 +1,113 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Instagram, Linkedin, Mail, FileText } from 'lucide-react';
+import { ArrowRight, Play, Instagram, Linkedin, Mail, Sparkles } from 'lucide-react';
+import PdfLogo from './PdfLogo';
+import frontpageVideo from '../assets/frontpage.mp4';
+
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 } }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
+};
 
 const Hero = () => {
     return (
-        <section className="hero" id="hero" style={sectionStyle}>
-            <div className="hero-bg-shapes">
-                <motion.div
-                    className="shape shape-1"
-                    animate={{ x: [-20, 20, -20], y: [0, 20, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    style={shapeStyle('#e8c4d4', '500px', '-120px', '-120px')}
-                />
-                <motion.div
-                    className="shape shape-2"
-                    animate={{ x: [0, 20, 0], y: [-15, 0, -15] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    style={shapeStyle('#d4a0b0', '350px', 'auto', '-80px', '-80px')}
-                />
+        <section className="hero" id="hero">
+            <video
+                className="hero-bg-video"
+                src={frontpageVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+            />
+            <div className="hero-video-overlay" />
+            <div className="hero-grid-lines" />
+
+            <div className="hero-socials">
+                {[
+                    { icon: <Instagram size={16} />, href: 'https://www.instagram.com/vidmarkmedia', label: 'Instagram' },
+                    { icon: <Linkedin size={16} />, href: 'https://www.linkedin.com/in/vidmark-media-b43a753a5/', label: 'LinkedIn' },
+                    { icon: <Mail size={16} />, href: 'mailto:Vidmarkmedia@gmail.com', label: 'Email' },
+                ].map(({ icon, href, label }) => (
+                    <motion.a
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        className="hero-social-link"
+                        whileHover={{ scale: 1.15, y: -2 }}
+                        whileTap={{ scale: 0.96 }}
+                    >
+                        {icon}
+                    </motion.a>
+                ))}
             </div>
 
             <motion.div
                 className="hero-content"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                style={contentStyle}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
             >
-                <div className="hero-photo" style={photoContainerStyle}>
-                    <div className="photo-ring" style={ringStyle}>
-                        <img
-                            src="dimple.jpeg"
-                            alt="Dimple"
-                            className="profile-img"
-                            style={imgStyle}
-                            onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'flex';
-                            }}
-                        />
-                        <div className="photo-placeholder" style={placeholderStyle}>
-                            <span style={{ fontSize: '3rem' }}>D</span>
-                        </div>
+                <motion.div variants={itemVariants}>
+                    <div className="hero-badge">
+                        <div className="hero-badge-dot" />
+                        <Sparkles size={12} />
+                        Available for Premium Design & Video Projects
                     </div>
-                </div>
+                </motion.div>
 
-                <h1 className="hero-name" style={nameStyle}>Dimple</h1>
-                <p className="hero-title" style={titleStyle}>Graphic Designer & Video Editor</p>
-                <p className="hero-subtitle" style={subtitleStyle}>B.El.Ed Student at Miranda House, University of Delhi</p>
-                <p className="hero-tagline" style={taglineStyle}>
-                    Creative designer and social media enthusiast passionate about visual storytelling, digital engagement, and impactful campaigns.
-                </p>
-
-                <div className="hero-buttons" style={btnGroupStyle}>
-                    <a href="#portfolio" className="btn btn-outline">See My Work</a>
-                    <a 
-                        href="https://drive.google.com/file/d/1KYYYj0tsjcwHDBwHXX0TeYJ89M5WHukO/view?usp=sharing" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-outline"
+                <motion.div variants={itemVariants}>
+                    <motion.div
+                        className="hero-logo-card"
+                        whileHover={{ scale: 1.025, y: -4 }}
+                        whileTap={{ scale: 0.99 }}
+                        transition={{ type: 'spring', stiffness: 220, damping: 18 }}
                     >
-                        <FileText size={18} /> View Resume
-                    </a>
-                    <a href="#contact" className="btn btn-outline">Let's Talk</a>
-                </div>
+                        <PdfLogo />
+                    </motion.div>
+                </motion.div>
 
-                <div className="hero-socials" style={socialsStyle}>
-                    <a href="https://www.instagram.com/dimple_1685?igsh=anoxams5djBheTls" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
-                    <a href="https://www.linkedin.com/in/dimple9119/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={20} /></a>
-                    <a href="mailto:dimple1682005@gmail.com" aria-label="Email"><Mail size={20} /></a>
-                </div>
+                <motion.p className="hero-kicker" variants={itemVariants}>
+                    Graphic Designing / Video Editing / Brand Identity / 3D Designing
+                </motion.p>
+
+                <motion.p className="hero-tagline" variants={itemVariants}>
+                    We transform brands into outstanding visual stories. From scroll-stopping video edits
+                    and premium graphic designs to complete brand identities, Vidmark delivers premium creative work that gets results.
+                </motion.p>
+
+                <motion.div className="hero-buttons" variants={itemVariants}>
+                    <motion.a
+                        href="#contact"
+                        className="btn btn-primary btn-lg"
+                        whileHover={{ y: -3 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        Hire Us <ArrowRight size={18} />
+                    </motion.a>
+                    <motion.a
+                        href="#portfolio"
+                        className="btn btn-outline btn-lg"
+                        whileHover={{ y: -3 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <Play size={16} /> View Work
+                    </motion.a>
+                </motion.div>
+
             </motion.div>
 
-            <div className="scroll-indicator" style={indicatorStyle}>
-                <span>Scroll Down</span>
-                <ChevronDown size={16} />
-            </div>
         </section>
     );
 };
-
-const sectionStyle = {
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    position: 'relative',
-    overflow: 'hidden',
-    padding: '120px 24px 80px',
-    background: 'linear-gradient(180deg, #fdf5f8 0%, #fefbfc 60%, #f8f0f4 100%)'
-};
-
-const shapeStyle = (bg, size, top, right, bottom, left) => ({
-    position: 'absolute',
-    width: size, height: size,
-    background: bg,
-    borderRadius: '50%',
-    opacity: 0.12,
-    top, right, bottom, left
-});
-
-const contentStyle = { position: 'relative', zIndex: 1 };
-const photoContainerStyle = { marginBottom: '28px' };
-const ringStyle = {
-    width: '280px', height: '280px', margin: '0 auto',
-    borderRadius: '50%', padding: '4px',
-    background: 'linear-gradient(135deg, #c48b9f, #e8c4d4, #d4a0b0)'
-};
-const imgStyle = { width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', border: '4px solid #fefbfc' };
-const placeholderStyle = {
-    display: 'none', width: '100%', height: '100%', borderRadius: '50%',
-    background: 'linear-gradient(135deg, #fdf5f8, #e8c4d4)',
-    alignItems: 'center', justifyContent: 'center', border: '4px solid #fefbfc'
-};
-
-const nameStyle = { fontSize: '3.2rem', fontWeight: 700, marginBottom: '8px' };
-const titleStyle = { fontSize: '1.15rem', fontWeight: 500, color: '#c48b9f', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' };
-const subtitleStyle = { fontSize: '1.1rem', color: '#7a6b72', fontWeight: 500, marginBottom: '20px' };
-const taglineStyle = { fontSize: '1.05rem', color: '#7a6b72', maxWidth: '520px', margin: '0 auto 32px' };
-const btnGroupStyle = { display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '32px' };
-const socialsStyle = { display: 'flex', gap: '16px', justifyContent: 'center' };
-const indicatorStyle = { position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: '#a89da2', fontSize: '0.75rem' };
 
 export default Hero;

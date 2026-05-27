@@ -1,38 +1,73 @@
 import React from 'react';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+
+const footerLinks = [
+    { label: 'Services', href: '#services' },
+    { label: 'Work', href: '#portfolio' },
+    { label: 'Process', href: '#workflow' },
+];
+
+const socials = [
+    { icon: <Instagram size={18} />, href: 'https://www.instagram.com/vidmarkmedia', label: 'Instagram' },
+    { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/in/vidmark-media-b43a753a5/', label: 'LinkedIn' },
+    { icon: <Mail size={18} />, href: 'mailto:Vidmarkmedia@gmail.com', label: 'Email' },
+];
 
 const Footer = () => {
     return (
-        <footer className="footer" style={footerStyle}>
+        <footer className="footer">
             <div className="container">
-                <div className="footer-content" style={contentStyle}>
-                    <div className="footer-brand">
-                        <h3 style={brandStyle}>Dimple<span style={{ color: '#e8c4d4' }}>.</span></h3>
-                        <p style={roleStyle}>Graphic Designer & Video Editor</p>
+                <div className="footer-grid">
+                    <div>
+                        <div className="footer-brand-name">Vidmark<span>.</span></div>
+                        <p className="footer-brand-desc">
+                            Graphic design, video editing, brand identity, and social creative systems for digital-first brands.
+                        </p>
+                        <div className="footer-socials">
+                            {socials.map((item) => (
+                                <a
+                                    key={item.label}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="footer-social"
+                                    aria-label={item.label}
+                                >
+                                    {item.icon}
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                    <div className="footer-socials" style={socialsGridStyle}>
-                        <a href="https://www.instagram.com/dimple_1685?igsh=anoxams5djBheTls" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={socialLinkStyle}><Instagram size={20} /></a>
-                        <a href="https://www.linkedin.com/in/dimple9119/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={socialLinkStyle}><Linkedin size={20} /></a>
-                        <a href="mailto:dimple1682005@gmail.com" aria-label="Email" style={socialLinkStyle}><Mail size={20} /></a>
+
+                    <div>
+                        <div className="footer-col-title">Explore</div>
+                        <div className="footer-links">
+                            {footerLinks.map((link) => (
+                                <a key={link.href} href={link.href} className="footer-link">
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="footer-col-title">Start</div>
+                        <a href="#contact" className="footer-project-link">
+                            Discuss a project <ArrowUpRight size={16} />
+                        </a>
+                        <p className="footer-brand-desc" style={{ marginTop: '14px' }}>
+                            Available for select design, video, and campaign work.
+                        </p>
                     </div>
                 </div>
-                <div className="footer-bottom" style={bottomStyle}>
-                    <p>&copy; 2026 Dimple. All rights reserved.</p>
+
+                <div className="footer-bottom">
+                    <p className="footer-copy">Copyright 2026 Vidmark Brand. All rights reserved.</p>
+                    <p className="footer-made">Built for brands that move fast.</p>
                 </div>
             </div>
         </footer>
     );
 };
-
-const footerStyle = { background: '#3a2d35', padding: '48px 0 24px', color: 'rgba(255, 255, 255, 0.7)' };
-const contentStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' };
-const brandStyle = { fontSize: '1.4rem', fontWeight: 700, color: '#fff' };
-const roleStyle = { fontSize: '0.85rem', marginTop: '4px' };
-const socialsGridStyle = { display: 'flex', gap: '12px' };
-const socialLinkStyle = {
-    width: '40px', height: '40px', borderRadius: '50%', border: '1.5px solid rgba(255, 255, 255, 0.2)',
-    display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255, 255, 255, 0.7)'
-};
-const bottomStyle = { textAlign: 'center', paddingTop: '24px', borderTop: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.82rem' };
 
 export default Footer;
