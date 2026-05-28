@@ -7,7 +7,7 @@ import logo from '../assets/vidmarkmedia_logo.png';
 const loadingTexts = [
     'Preparing edits...',
     'Tuning visuals...',
-    'Loading portfolio...',
+    'Loading showcase...',
     'Ready to roll...',
 ];
 

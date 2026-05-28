@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Eye, Play } from 'lucide-react';
 
 import vid1 from '../assets/InShot_20260311_205236077.mp4';
-import vid2 from '../assets/dimpe1.mp4';
+import vid2 from '../assets/vidmark-showreel.mp4';
 import vid3 from '../assets/card3/InShot_20251124_140148226.mp4';
 import vid4 from '../assets/card3/Pinterest_11.mp4';
 import videoThumb from '../assets/WhatsApp Image 2026-04-09 at 3.11.29 PM.jpeg';

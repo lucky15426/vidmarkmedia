@@ -1,60 +1,65 @@
-# Dimple Portfolio
+# Vidmark Media Website
 
-Graphic Designer & Video Editor Portfolio built with React, Vite, and Framer Motion.
+Premium creative studio website for Vidmark Media, built to showcase brand identity, graphic design, video editing, social media creative, and digital campaign work.
 
-## 🚀 Features
+## Features
 
-- **Modern UI/UX**: Premium aesthetic with smooth animations.
-- **Responsive Design**: Works perfectly on all screen sizes.
-- **Contact Form**: Integrated with EmailJS for direct communication.
-- **Interactive Components**: Showcase of work and skills with dynamic interactions.
+- Brand-led landing experience with Vidmark visual identity
+- Hero video, animated loading screen, and smooth page transitions
+- Services, featured work, brand logo showcase, workflow, skills, and contact sections
+- Responsive layout for desktop, tablet, and mobile
+- EmailJS-powered contact form for project enquiries
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Framework**: React 18
-- **Build Tool**: Vite
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Contact Service**: EmailJS
+- React 18
+- Vite
+- Framer Motion
+- Lucide React
+- OGL for the aurora loading effect
+- EmailJS
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
+- Node.js 18 or higher
+- npm
 
 ### Installation
 
-1. Clone the repository
+1. Install dependencies:
 
-2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env` file in the root directory and add your EmailJS credentials:
+2. Create a `.env` file in the root directory with your EmailJS credentials:
+
    ```env
    VITE_EMAILJS_SERVICE_ID=your_service_id
    VITE_EMAILJS_TEMPLATE_ID=your_template_id
    VITE_EMAILJS_PUBLIC_KEY=your_public_key
    ```
 
-4. Run the development server:
+3. Start the development server:
+
    ```bash
    npm run dev
    ```
 
-### 🚀 Deployment
+4. Build for production:
 
-The project is optimized for deployment on **Vercel** or **Netlify**.
+   ```bash
+   npm run build
+   ```
 
-1. Push your code to GitHub.
-2. Connect your repository to Vercel/Netlify.
-3. Add the environment variables from your `.env` file in the deployment dashboard.
-4. Deploy!
+## Deployment
 
-## 📜 License
+This site is ready for deployment on Vercel, Netlify, or any static hosting provider that supports Vite builds.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Add the same EmailJS environment variables in your hosting dashboard before deploying.
+
+## Brand
+
+Vidmark Media creates premium graphic design, video editing, brand identity, social media creative, and visual systems for digital-first brands.
