@@ -312,18 +312,20 @@ body::before {
 }
 
 .nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.5px;
+  display: block;
+  width: clamp(150px, 14vw, 210px);
+  aspect-ratio: 1561 / 758;
+  flex: 0 0 auto;
 }
 
-.nav-logo span {
-  background: var(--grad-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.nav-logo .brand-logo-img {
+  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.26));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.nav-logo:hover .brand-logo-img {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.34));
 }
 
 .nav-links {
@@ -2196,18 +2198,21 @@ body::before {
   margin-bottom: 64px;
 }
 
-.footer-brand-name {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 12px;
+.footer-brand-logo {
+  display: block;
+  width: min(260px, 72vw);
+  aspect-ratio: 1561 / 758;
+  margin-bottom: 18px;
 }
 
-.footer-brand-name span {
-  background: var(--grad-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.footer-brand-logo .brand-logo-img {
+  filter: drop-shadow(0 14px 32px rgba(0, 30, 46, 0.26));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.footer-brand-logo:hover .brand-logo-img {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 18px 42px rgba(0, 30, 46, 0.34));
 }
 
 .footer-brand-desc {

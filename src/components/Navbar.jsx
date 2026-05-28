@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
+import PdfLogo from './PdfLogo';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
         >
             <div className="container">
                 <a href="#hero" className="nav-logo">
-                    Vidmark<span>.</span>
+                    <PdfLogo />
                 </a>
 
                 <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
