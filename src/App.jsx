@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -6,6 +6,7 @@ import Services from './components/Services';
 import About from './components/About';
 import BrandLogos from './components/BrandLogos';
 import Portfolio from './components/Portfolio';
+import VideoEditing from './components/VideoEditing';
 import Skills from './components/Skills';
 import Workflow from './components/Workflow';
 import Contact from './components/Contact';
@@ -43,6 +44,7 @@ function App() {
                         <About />
                         <BrandLogos />
                         <Portfolio />
+                        <VideoEditing />
                         <Skills />
                         <Workflow />
                         <Contact />

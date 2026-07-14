@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Instagram, Linkedin, Mail, Sparkles } from 'lucide-react';
 import PdfLogo from './PdfLogo';

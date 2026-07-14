@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
     Monitor, Video, Globe, Brain, Instagram, Lightbulb,

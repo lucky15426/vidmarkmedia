@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Wand2, Users, TrendingUp, Award, Zap } from 'lucide-react';
 import PdfLogo from './PdfLogo';
@@ -84,7 +83,7 @@ const About = () => {
 
                         <div className="about-actions">
                             <a href="#contact" className="btn btn-primary">
-                                Let's Work Together
+                                Let&apos;s Work Together
                             </a>
                             <a href="#portfolio" className="btn btn-outline">
                                 View Showcase

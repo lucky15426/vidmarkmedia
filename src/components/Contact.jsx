@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
     Mail, Phone, Linkedin, Instagram, Send, Check,
@@ -53,7 +53,7 @@ const Contact = () => {
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
                 import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 templateParams,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+                { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
             )
             .then(() => {
                 setIsSent(true);
@@ -79,7 +79,7 @@ const Contact = () => {
                 >
                     <div className="section-label">Get In Touch</div>
                     <h2 className="section-title">
-                        Let's Build Something <span className="gradient-text">Great</span>
+                        Let&apos;s Build Something <span className="gradient-text">Great</span>
                     </h2>
                 </motion.div>
 
@@ -92,7 +92,7 @@ const Contact = () => {
                     >
                         <p className="contact-info-desc">
                             Have a project in mind? Looking for a creative partner who delivers premium results?
-                            Let's talk. We are available for brand projects, campaigns, and long-term collaborations.
+                            Let&apos;s talk. We are available for brand projects, campaigns, and long-term collaborations.
                         </p>
 
                         <div className="contact-items">
@@ -219,7 +219,7 @@ const Contact = () => {
                                     <option value="ui-ux">UI/UX Design</option>
                                     <option value="reels">Reels & Story Editing</option>
                                     <option value="full-package">Full Creative Package</option>
-                                    <option value="other">Other / Let's Discuss</option>
+                                    <option value="other">Other / Let&apos;s Discuss</option>
                                 </select>
                             </div>
 

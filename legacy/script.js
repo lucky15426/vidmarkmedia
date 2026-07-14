@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initBackToTop();
 });
-
 // ===== NAVBAR SCROLL EFFECT =====
 function initNavbar() {
     const navbar = document.getElementById('navbar');

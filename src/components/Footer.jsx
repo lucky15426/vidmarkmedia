@@ -1,6 +1,4 @@
-import React from 'react';
 import { Instagram, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
-import PdfLogo from './PdfLogo';
 
 const footerLinks = [
     { label: 'Services', href: '#services' },
@@ -20,9 +18,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-grid">
                     <div>
-                        <a href="#hero" className="footer-brand-logo" aria-label="Vidmark Media home">
-                            <PdfLogo />
-                        </a>
+                        <div className="footer-brand-name">Vidmark<span>.</span></div>
                         <p className="footer-brand-desc">
                             Graphic design, video editing, brand identity, and social creative systems for digital-first brands.
                         </p>

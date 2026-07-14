@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Eye, Play } from 'lucide-react';
-
-import vid1 from '../assets/InShot_20260311_205236077.mp4';
-import vid2 from '../assets/vidmark-showreel.mp4';
-import vid3 from '../assets/card3/InShot_20251124_140148226.mp4';
-import vid4 from '../assets/card3/Pinterest_11.mp4';
-import videoThumb from '../assets/WhatsApp Image 2026-04-09 at 3.11.29 PM.jpeg';
 
 const imageGlob = {
     ayudra: import.meta.glob('../assets/ayudra design*/**/*.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' }),
     drOrg: import.meta.glob('../assets/DR.ORG SOCIAL POST 1/*.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' }),
     storyDesign: import.meta.glob('../assets/card4/*.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' }),
+    brandCreatives: import.meta.glob('../assets/design *.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' }),
+    slideDesigns: import.meta.glob('../assets/slide*.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' }),
 };
 
 const normalizeImageName = (path) => path
@@ -27,7 +23,20 @@ const toImages = (modules, { limit = Infinity, exclude = [] } = {}) => {
     const seen = new Set();
 
     return Object.entries(modules)
-        .sort(([a], [b]) => a.localeCompare(b))
+        .sort(([a], [b]) => {
+            if (a.toLowerCase().includes('slide') && b.toLowerCase().includes('slide')) {
+                const matchA = a.match(/slide\s*(\d+)/i);
+                const matchB = b.match(/slide\s*(\d+)/i);
+                if (matchA && matchB) {
+                    const numA = parseInt(matchA[1], 10);
+                    const numB = parseInt(matchB[1], 10);
+                    if (numA !== numB) {
+                        return numA - numB;
+                    }
+                }
+            }
+            return a.localeCompare(b);
+        })
         .filter(([path]) => !exclude.some((pattern) => path.toLowerCase().includes(pattern.toLowerCase())))
         .filter(([path]) => {
             const key = normalizeImageName(path);
@@ -43,21 +52,18 @@ const ayudraImages = toImages(imageGlob.ayudra, {
     limit: 8,
     exclude: ['14th april  crausal'],
 });
-const drOrgImages = toImages(imageGlob.drOrg, { limit: 8 });
+const drOrgImages = toImages(imageGlob.drOrg, {
+    limit: 8,
+    exclude: ['DR.ORG SOCIAL POST 12', 'DR.org reels creative', 'DR.org facebook ad creative']
+});
 const storyImages = toImages(imageGlob.storyDesign, { limit: 6 });
+const brandCreativeImages = toImages(imageGlob.brandCreatives);
+const slideImages = toImages(imageGlob.slideDesigns, {
+    exclude: ['slide 2 for behance', 'slide 3 for behance']
+});
+
 
 const ALL_PROJECTS = [
-    {
-        id: 1,
-        title: 'Video Editing & Reels',
-        category: 'Video Editing',
-        client: 'Personal Brands + Social Campaigns',
-        desc: 'A combined showcase of short-form edits, reels, transitions, pacing, captions, and scroll-stopping video storytelling.',
-        thumbnail: videoThumb,
-        videos: [vid1, vid2, vid3, vid4],
-        color: '#38c7f2',
-        tag: '4 Videos',
-    },
     {
         id: 2,
         title: 'Ayudra Social Creatives',
@@ -81,6 +87,17 @@ const ALL_PROJECTS = [
         tag: `${drOrgImages.length} Designs`,
     },
     {
+        id: 4,
+        title: 'Social Poster & Brand Creatives',
+        category: 'Graphic Design',
+        client: 'Featured Campaign',
+        desc: 'Premium visual design and promotional graphics crafted for advertising and brand engagement.',
+        thumbnail: brandCreativeImages[0] || '',
+        images: brandCreativeImages,
+        color: '#ffbc00',
+        tag: `${brandCreativeImages.length} Designs`,
+    },
+    {
         id: 5,
         title: 'Story & Engagement Sets',
         category: 'Social Media',
@@ -91,9 +108,20 @@ const ALL_PROJECTS = [
         color: '#38c7f2',
         tag: `${storyImages.length} Designs`,
     },
+    {
+        id: 6,
+        title: 'Behance Case Studies & Presentations',
+        category: 'Graphic Design',
+        client: 'Vidmark Agency Showcase',
+        desc: 'Sleek Behance presentation designs, brand case studies, and creative slides built to pitch visual strategies.',
+        thumbnail: slideImages[0] || '',
+        images: slideImages,
+        color: '#ef4f9a',
+        tag: `${slideImages.length} Slides`,
+    },
 ];
 
-const FILTERS = ['All', 'Video Editing', 'Graphic Design', 'Social Media'];
+const FILTERS = ['All', 'Graphic Design', 'Social Media'];
 
 const Portfolio = () => {
     const [active, setActive] = useState('All');
