@@ -39,7 +39,7 @@ const About = () => {
                             <span className="gradient-text">Meets Growth Strategy</span>
                         </h2>
                         <p className="section-subtitle" style={{ marginBottom: '32px' }}>
-                            We are <strong style={{ color: 'var(--text-primary)' }}>Vidmark Brand</strong>, a
+                            We are <strong style={{ color: 'var(--text-primary)' }}>VidmarkMedia Agency</strong>, a
                             full-scale creative agency and production house dedicated to building outstanding brand identities,
                             producing viral-ready video content, and designing high-converting digital experiences.
                         </p>
@@ -73,7 +73,7 @@ const About = () => {
                             </div>
                             <div>
                                 <div className="about-value-title">
-                                    Vidmark Brand Identity & Production House
+                                    VidmarkMedia Agency Identity & Production House
                                 </div>
                                 <div className="about-value-copy">
                                     Delivering high-end graphic design, premium video editing, and complete digital growth frameworks.

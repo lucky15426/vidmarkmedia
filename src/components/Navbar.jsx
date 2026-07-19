@@ -31,7 +31,7 @@ const Navbar = () => {
         >
             <div className="container">
                 <a href="#hero" className="nav-logo">
-                    Vidmark<span>.</span>
+                    Vidm<span className="logo-a">a</span>rk<span className="logo-dot">.</span>
                 </a>
 
                 <ul className={`nav-links ${isOpen ? 'open' : ''}`}>

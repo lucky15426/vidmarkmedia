@@ -72,29 +72,7 @@ const BrandLogos = () => {
             </div>
 
             <div className="container">
-                <motion.div
-                    className="brand-logo-grid"
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.6 }}
-                >
-                    {logos.map((logo, index) => (
-                        <motion.div
-                            className="brand-logo-card"
-                            key={logo.name}
-                            initial={{ opacity: 0, y: 18 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.04 }}
-                        >
-                            <img src={logo.src} alt={`${logo.name} logo`} />
-                            <span>{logo.name}</span>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                <div className="brand-logos-note">
+                <div className="brand-logos-note" style={{ marginTop: '36px' }}>
                     <Sparkles size={14} />
                     <span>Logo exploration, refinement, layout, typography, and brand-ready export work.</span>
                 </div>

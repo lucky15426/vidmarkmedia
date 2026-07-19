@@ -54,7 +54,7 @@ const ayudraImages = toImages(imageGlob.ayudra, {
 });
 const drOrgImages = toImages(imageGlob.drOrg, {
     limit: 8,
-    exclude: ['DR.ORG SOCIAL POST 12', 'DR.org reels creative', 'DR.org facebook ad creative']
+    exclude: ['DR.ORG SOCIAL POST 14', 'DR.ORG SOCIAL POST 12', 'DR.org reels creative', 'DR.org facebook ad creative']
 });
 const storyImages = toImages(imageGlob.storyDesign, { limit: 6 });
 const brandCreativeImages = toImages(imageGlob.brandCreatives);

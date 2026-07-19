@@ -14,6 +14,8 @@
   --brand-accent: #ef4f9a;
   --brand-accent-rgb: 239, 79, 154;
   --brand-gold: #ffbc00;
+  --brand-logo-teal: #18acb6;
+  --brand-logo-gold: #ffbb02;
 
   /* Gradient Palette */
   --grad-hero: linear-gradient(135deg, #0a5168 0%, #1687a7 48%, #0c617c 100%);
@@ -315,12 +317,16 @@ body::before {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--brand-logo-teal);
   letter-spacing: -0.5px;
 }
 
-.nav-logo span {
-  background: var(--grad-primary);
+.nav-logo .logo-a {
+  color: var(--brand-logo-gold);
+}
+
+.nav-logo .logo-dot {
+  background: linear-gradient(135deg, var(--brand-logo-teal), var(--brand-logo-gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2206,11 +2212,16 @@ body::before {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 800;
+  color: var(--brand-logo-teal);
   margin-bottom: 12px;
 }
 
-.footer-brand-name span {
-  background: var(--grad-primary);
+.footer-brand-name .logo-a {
+  color: var(--brand-logo-gold);
+}
+
+.footer-brand-name .logo-dot {
+  background: linear-gradient(135deg, var(--brand-logo-teal), var(--brand-logo-gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

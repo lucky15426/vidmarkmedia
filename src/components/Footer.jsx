@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-grid">
                     <div>
-                        <div className="footer-brand-name">Vidmark<span>.</span></div>
+                        <div className="footer-brand-name">Vidm<span className="logo-a">a</span>rk<span className="logo-dot">.</span></div>
                         <p className="footer-brand-desc">
                             Graphic design, video editing, brand identity, and social creative systems for digital-first brands.
                         </p>
@@ -61,7 +61,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-bottom">
-                    <p className="footer-copy">Copyright 2026 Vidmark Brand. All rights reserved.</p>
+                    <p className="footer-copy">Copyright © 2026 VidmarkMedia Agency. All rights reserved.</p>
                     <p className="footer-made">Built for brands that move fast.</p>
                 </div>
             </div>
