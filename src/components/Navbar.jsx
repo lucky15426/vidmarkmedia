@@ -18,6 +18,7 @@ const Navbar = () => {
         { name: 'Video Editing', href: '#video-editing' },
         { name: 'About', href: '#about' },
         { name: 'Process', href: '#workflow' },
+        { name: 'Reviews', href: '#reviews' },
     ];
 
     const handleLinkClick = () => setIsOpen(false);

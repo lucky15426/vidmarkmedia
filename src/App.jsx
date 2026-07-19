@@ -9,6 +9,7 @@ import Portfolio from './components/Portfolio';
 import VideoEditing from './components/VideoEditing';
 import Skills from './components/Skills';
 import Workflow from './components/Workflow';
+import Reviews from './components/Reviews';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
@@ -48,6 +49,7 @@ function App() {
                         <Skills />
                         <Workflow />
                         <Contact />
+                        <Reviews />
                         <Footer />
                         <BackToTop />
                     </motion.div>

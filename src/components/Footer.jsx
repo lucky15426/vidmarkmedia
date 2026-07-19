@@ -4,6 +4,7 @@ const footerLinks = [
     { label: 'Services', href: '#services' },
     { label: 'Work', href: '#portfolio' },
     { label: 'Process', href: '#workflow' },
+    { label: 'Reviews', href: '#reviews' },
 ];
 
 const socials = [
